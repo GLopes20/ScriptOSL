@@ -1,0 +1,17 @@
+creation user 
+net user [nom user] /add
+
+creation  localgroup 
+net localgroup [nom du groupe] /add
+
+ajout d'un user ds groupe 
+net localgroup [nom du groupe] [nom user] /add
+
+suppression user 
+net user [nom user] /delete
+
+creation  localgroup 
+net localgroup [nom du groupe] /delete
+
+ajout d'un user ds groupe 
+net localgroup [nom du groupe] [nom user] /delete

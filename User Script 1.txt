@@ -1,0 +1,20 @@
+@echo off
+
+set /p username= Entrez votre nom d'utilisateur :
+set /p mdp= Entrez votre mon de passe :
+set /p admin= Voulez-vous etre admin ? (O/N):
+net user %username% %mdp% /add
+
+if /I "%admin%"=="O" goto opt1
+if /I "%admin%"=="N" goto opt2
+
+:opt1
+net localgroup admintrators %username% /add 
+echo Le utilisateur %username% a ete ajouter en tant que admin avec succes. 
+pause 
+exit
+:opt2
+echo Le utilisateur %username% a ete ajouter avec succes. 
+pause 
+exit
+

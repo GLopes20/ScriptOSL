@@ -1,0 +1,25 @@
+@echo off
+
+if "%1" == "" goto error
+if "%2" == "" goto error
+
+set username=%1
+set mdp=%2
+net user %username% %mpd% /add
+if "%3" == "/admin" goto admin
+echo Le utilisateur %username% a ete ajouter avec succes. 
+pause
+exit
+
+
+
+:admin	
+net localgroup administrators %username% /add
+echo Le utilisateur %username% a ete ajouter en tant que admin avec succes. 
+pause 
+exit
+
+:err
+echo Erreur : Veuillez fournir un nom de utilisateur et un mot de passe.
+pause 
+exit
